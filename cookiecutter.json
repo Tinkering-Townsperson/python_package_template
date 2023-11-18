@@ -1,0 +1,23 @@
+{
+	"package_name": "Python Package",
+	"author_name": "",
+	"author_email": "",
+	"package_version": "1.0.0",
+	"short_description": "Test Package",
+	"python_version": "^3.11",
+	"license": [
+		"All Rights Reserved",
+		"MIT license",
+		"GNU General Public License v3",
+		"GNU Lesser General Public License v3"
+	],
+	"dependencies": "",
+	"dev_dependencies": "\"build>=0.10.0\" \"flake8>=6.1.0\" \"pytest>=7.4.0\", \"twine>=4.0.0\", \"wheel>=0.41.0\"",
+	"include_github_actions": "Y/n",
+	"include_dependabot": "Y/n",
+	"__package_slug": "{{ cookiecutter.package_name.lower().replace(' ', '_').replace('-', '_') }}",
+	"__python_short_version": "{{ cookiecutter.python_version.split('.')[:2]|join('.') }}",
+	"_copy_without_render": [
+		"*.yml"
+	]
+}
