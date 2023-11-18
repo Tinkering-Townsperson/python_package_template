@@ -5,7 +5,7 @@
 - [Cookiecutter](https://www.cookiecutter.io/)
 - [Poetry](https://python-poetry.org)
 - [Git](https://git-scm.com)
-- [w64devkit](https://github.com/skeeto/w64devkit)
+- [w64devkit](https://github.com/skeeto/w64devkit) (On windows)
 
 ## Usage
 1. Make sure you have installed all the prerequisites.
