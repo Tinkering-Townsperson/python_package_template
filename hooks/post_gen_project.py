@@ -5,8 +5,8 @@ import sys
 
 DEPENDENCIES = '{{cookiecutter.dependencies}}'
 DEV_DEPENDENCIES = '{{cookiecutter.dev_dependencies}}'
-INCLUDE_GITHUB_ACTIONS = {% if cookiecutter.include_github_actions|lower == "y" %}True{% else %}False{% endif %}
-INCLUDE_DEPENDABOT = {% if cookiecutter.include_dependabot|lower == "y" %}True{% else %}False{% endif %}
+INCLUDE_GITHUB_ACTIONS = {% if cookiecutter.include_github_actions %}True{% else %}False{% endif %}
+INCLUDE_DEPENDABOT = {% if cookiecutter.include_dependabot %}True{% else %}False{% endif %}
 PACKAGE_SLUG = "{{cookiecutter.__package_slug}}"
 
 remove_paths = set([])
