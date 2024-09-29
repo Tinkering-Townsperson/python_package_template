@@ -3,7 +3,7 @@ import shutil
 import subprocess
 import sys
 
-# DEPENDENCIES = '{{cookiecutter.dependencies}}'
+# DEPENDENCIES =
 DEV_DEPENDENCIES = '{{cookiecutter.dev_dependencies}}'
 INCLUDE_GITHUB_ACTIONS = {% if cookiecutter.include_github_actions %}True{% else %}False{% endif %}
 INCLUDE_DEPENDABOT = {% if cookiecutter.include_dependabot %}True{% else %}False{% endif %}
