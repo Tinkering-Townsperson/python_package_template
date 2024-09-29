@@ -11,8 +11,9 @@
 		"GNU General Public License v3",
 		"GNU Lesser General Public License v3"
 	],
-	"dependencies": "",
-	"dev_dependencies": "\"build>=0.10.0\" \"flake8>=6.1.0\" \"pytest>=7.4.0\", \"twine>=4.0.0\", \"wheel>=0.41.0\"",
+	"dev_dependencies": [
+		"Default"
+	],
 	"include_github_actions": true,
 	"include_dependabot": true,
 	"__package_slug": "{{ cookiecutter.package_name.lower().replace(' ', '_').replace('-', '_') }}",

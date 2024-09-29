@@ -3,7 +3,7 @@ import shutil
 import subprocess
 import sys
 
-DEPENDENCIES = '{{cookiecutter.dependencies}}'
+# DEPENDENCIES = '{{cookiecutter.dependencies}}'
 DEV_DEPENDENCIES = '{{cookiecutter.dev_dependencies}}'
 INCLUDE_GITHUB_ACTIONS = {% if cookiecutter.include_github_actions %}True{% else %}False{% endif %}
 INCLUDE_DEPENDABOT = {% if cookiecutter.include_dependabot %}True{% else %}False{% endif %}
@@ -30,10 +30,8 @@ for path in remove_paths:
 # Check for empty directories
 for path in CHECK_FOR_EMPTY_DIRS:
 	path = path.strip()
-	if path and os.path.exists(path):
-		if os.path.isdir(path):
-			if len(os.listdir(path)) == 0:
-				shutil.rmtree(path)
+	if path and os.path.exists(path) and os.path.isdir(path) and len(os.listdir(path)) == 0:
+		shutil.rmtree(path)
 
 
 def run_command(command):
@@ -50,9 +48,14 @@ def run_command(command):
 run_command("git init")
 run_command("make venv")
 
-if DEPENDENCIES and DEPENDENCIES != " ":
-	run_command(f"poetry add {DEPENDENCIES} --no-interaction")
-if DEPENDENCIES and DEV_DEPENDENCIES != " ":
-	run_command(f"poetry add {DEV_DEPENDENCIES} --group=dev --no-interaction")
+# if DEPENDENCIES and DEPENDENCIES != " ":
+# 	run_command(f"poetry add {DEPENDENCIES} --no-interaction")
+# if DEPENDENCIES and DEV_DEPENDENCIES != " ":
+# 	run_command(f"poetry add {DEV_DEPENDENCIES} --group=dev --no-interaction")
+
+match DEV_DEPENDENCIES:
+	case "Default":
+		for pkg in ("build", "flake8", "pytest", "twine", "wheel"):
+			run_command(f"poetry add {pkg} --group=dev --no-interaction")
 
 run_command("make install-dev clean")
